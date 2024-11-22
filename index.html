@@ -4,285 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeff Liu - Professional Portfolio</title>
-    <style>
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body and Global Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #fff;
-        }
-
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .nav-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            padding: 5px 10px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background: #ff9d00;
-            color: #000;
-            border-radius: 5px;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-overlay h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-overlay p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        .hero-overlay a {
-            padding: 10px 20px;
-            background: #ff9d00;
-            color: #000;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .hero-overlay a:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        #about, #services, #contact {
-            background: #1e1e1e;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
-        /* About Section */
-        #about h2, #services h2, #contact h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            border-bottom: 2px solid #ff9d00;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        #about p {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        .services-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-        }
-
-        .service {
-            background: #2b2b2b;
-            padding: 20px;
-            border-radius: 10px;
-            flex: 1 1 300px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .service:hover {
-            transform: translateY(-10px);
-        }
-
-        .service h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: #ff9d00;
-        }
-
-        .service p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .contact-form input, .contact-form textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .contact-form button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #ff9d00;
-            color: #000;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .social-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .social-links li a {
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links li a:hover {
-            color: #ff9d00;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-overlay h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-overlay p {
-                font-size: 1.2rem;
-            }
-
-            .services-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-overlay h1 {
-                font-size: 2rem;
-            }
-
-            .hero-overlay p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Optional: Add Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pZ6l9cK84f+U8otz+HkCk2FbCibWj4SdE6v5lZcVtS0zzD0Y+9+sh9s/MBQ2cX2G0MzG1ZyGPrEwYI0H6r7lqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -302,7 +27,7 @@
     <!-- Hero Section with Video Background -->
     <section class="hero" id="home">
         <video autoplay muted loop>
-            <source src="your-video.mp4" type="video/mp4">
+            <source src="assets/videos/your-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay">
@@ -359,16 +84,13 @@
     <!-- Footer -->
     <footer>
         <ul class="social-links">
-            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i>FB</a></li>
-            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i>TW</a></li>
-            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i>LI</a></li>
-            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i>IG</a></li>
+            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
         </ul>
         <p>&copy; 2024 Jeff Liu. All Rights Reserved.</p>
     </footer>
-
-    <!-- Optional: Add Font Awesome for Social Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <!-- Optional: JavaScript for Navbar Scroll Effect -->
     <script>
@@ -381,5 +103,6 @@
             }
         });
     </script>
+
 </body>
 </html>
