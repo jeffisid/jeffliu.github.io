@@ -1,64 +1,80 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeff Liu's Personal Website</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
 
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <link href="styles.css" rel="stylesheet">
-        <!-- reference:https://www.youtube.com/watch?v=BzYMFd-lQL4 -->
-        <title>My Webpage</title>
+        /* Video Background Styles */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers the screen */
+            z-index: -1; /* Sends the video to the background */
+        }
 
-        <!-- for Javscript code -->
-        <script>
-            // return elements, reference:https://www.geeksforgeeks.org/html-dom-getelementbyid-method/
-            function showInfo() {
-                var name = document.getElementById("userInput").value;
+        /* Content Styles */
+        .content {
+            position: relative;
+            z-index: 1; /* Places content above the video */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-                //list chosen videos
-                var videos = [
-                    "https://www.youtube.com/watch?v=UF8uR6Z6KLc",
-                    "https://www.youtube.com/watch?v=A0FZIwabctw&t",
-                    "https://www.youtube.com/watch?v=Ep2_0WHogRQ"
-                ];
-                // Ranbdom number, reference: https://www.geeksforgeeks.org/java-math-random-method-examples/
+        .content h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
 
-                var randomIndex = Math.floor(Math.random() * 3);
-                var randomVideo = videos[randomIndex];
+        .content p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
 
-                // open new tab, reference: https://html.com/attributes/a-target/#:~:text=browser%20specifies%20otherwise.-,a%20target%3D%E2%80%9D_blank%E2%80%9D%20Open%20in%20New%20Browser%20Tab%20(,older%20browsers)%20a%20new%20window.
-                // reference: https://www.w3schools.com/tags/att_a_target.asp
-                document.getElementById("sayHi").innerHTML =
-                    "Hello, " + name + " Enjoy your inspiring video for the day: " +
-                "<a href='" + randomVideo + "' target='_blank'>Dose of the Day</a>";
-            }
-        </script>
+        .content a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
 
+        .content a:hover {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Video Background -->
+    <video id="video-background" autoplay loop muted>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-    </head>
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to Jeff Liu's World</h1>
+        <p>Your Inspiring Dose of Day</p>
+        <a href="#about">Learn More</a>
+    </div>
 
-    <body>
-        <h1> Your Inspiring Dose of the Day
-
-        </h1>
-
-        Hey, What's your name?
-        <form onsubmit="event.preventDefault(); showInfo();">
-            <input id="userInput" type="text" placeholder="please give me your name">
-            <button type="submit"> I feel lucky today</button>
-        </form>
-
-        <p id="sayHi"></p>
-
-        <p>Jeff, homepage </p>
-        <link href="MyPage.html">
-        <link href="image.html">
-        <a href="MyPage.html">My Page</a> ///
-        <a href="image.html">Image Page</a> ///
-        <a href="MyVision">MyVision</a> ///
-        <a href="index">index</a> ///
-
-    </body>
-
+</body>
 </html>
